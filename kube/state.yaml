@@ -1,0 +1,64 @@
+apiVersion: apps/v1    
+kind: StatefulSet
+metadata:
+  name: mongo
+spec:
+  serviceName: "mongo"
+  replicas: 3
+  selector:
+    matchLabels:
+      role: mongo
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+    spec:
+      serviceAccountName: kubernetes
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongo
+          image: us-central1-docker.pkg.dev/sherein/my-repo/mongo:5.0.15
+          imagePullPolicy: Always
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: shery
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: "1521"
+          args:
+            - "--replSet"
+            - rs0
+            - "--auth"
+            - "--keyFile"
+            - "/keyfile/keyfile"
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-persistent-storage
+              mountPath: /data/db
+        - name: mongo-sidecar
+          image: us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
+          env:
+            - name: MONGO_SIDECAR_POD_LABELS
+              value: "role=mongo,environment=test"
+            - name: KUBERNETES_MONGO_SERVICE_NAME
+              value: "mongo"
+            - name: KUBE_NAMESPACE
+              value: "default"
+            - name: MONGODB_USERNAME
+              value: "shery"
+            - name: MONGODB_PASSWORD
+              value: "1521"
+            - name: MONGODB_DATABASE
+              value: "admin"  
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-persistent-storage
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "standard-rwo"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
+          

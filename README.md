@@ -23,7 +23,7 @@ sudo docker tag mongo:5.0.15 us-central1-docker.pkg.dev/sherein/my-repo/mongo:5.
 gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
 sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/mongo:5.0.15
 ```
-*Pull the Mongo sidecar image and tag it:
+3.Pull the Mongo sidecar image and tag it:
 sudo docker pull docker.io/cvallance/mongo-k8s-sidecar
 sudo docker tag docker.io/cvallance/mongo-k8s-sidecar:latest us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
 gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
@@ -44,13 +44,12 @@ kubectl logs mongo-0 -c mongo-sidecar
 kubectl exec -it mongo-0 bash
 mongo --host mongo-0.mongo.default.svc.cluster.local:27017 -u shery -p 1521 --authenticationDatabase admin
 
-Inside the MongoDB shell, you can run `show databases` to verify connectivity.
-
-*Build the Node.js Docker image and connect the app with the database:
+6.Build the Node.js Docker image and connect the app with the database:
 sudo docker build -t node:slim .
 sudo docker tag mongo:slim us-central1-docker.pkg.dev/sherein/my-repo/mongo:slim 
 gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
 sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/node:5.0.15
+
 -----------------------
 7.Deploy your application . 🙂
 ``

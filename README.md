@@ -1,5 +1,5 @@
 #GCP-PROJECT-ITI
-##Project Description
+#Project Description
 
 This project is designed to run on Google Cloud Platform (GCP) and involves setting up a MongoDB database and a Node.js application connected to the database using Kubernetes for container orchestration.
 Prerequisites.
@@ -46,13 +46,11 @@ mongo --host mongo-0.mongo.default.svc.cluster.local:27017 -u shery -p 1521 --au
 
 Inside the MongoDB shell, you can run `show databases` to verify connectivity.
 
-6.Build the Node.js Docker image and connect the app with the database:
-
+#Build the Node.js Docker image and connect the app with the database:
 sudo docker build -t node:slim .
 sudo docker tag mongo:slim us-central1-docker.pkg.dev/sherein/my-repo/mongo:slim 
-
 gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
 sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/node:5.0.15
-
+-----------------------
 7.Deploy your application . 🙂
 ``

@@ -1,6 +1,5 @@
-# projec-GCP-ITI
+## commands ##
 first step shh the vm and run the follwing commands 
-
   gcloud container clusters get-credentials my-gke-cluster --region=us-central1 --project=sherein
   then try to kubectl get nodes if you got error timeout ,makesure the enable global access is anables in your cluster code .
   if you got the nodes successfully .

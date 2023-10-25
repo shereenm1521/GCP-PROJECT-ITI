@@ -9,10 +9,16 @@ Prerequisites.
     GCP account with access to create and manage resources
     Installed gcloud command-line tool
     Docker installed on your local machine
-    Project Overview
-**
-    ##Infrastructure Setup
-        Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components: a. IAM: Create two service accounts with appropriate roles. b. Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway. c. Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones. d. Storage: Set up an Artifact Registry repository to store container images.
+    
+    ##Project Overview
+
+    - Infrastructure Setup
+    **
+        Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components: 
+        a. IAM: Create two service accounts with appropriate roles. 
+        b. Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway. 
+        c. Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones. 
+        d. Storage: Set up an Artifact Registry repository to store container images.
 **
 
     - MongoDB Deployment

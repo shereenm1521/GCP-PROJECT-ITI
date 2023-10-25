@@ -11,19 +11,19 @@ first step shh the vm and run the follwing commands
   sudo docker build -t mongo:5.0.15 
   #sudo docker tag node:latest us-central1-docker.pkg.dev/sherein/my-repo/node:latest  
 
-## gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin  us-central1-docker.pkg.dev
+# gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin  us-central1-docker.pkg.dev
 # sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/mongo:5.0.15
 
 ------
 the same on vm try to pull sidecar-iamge and give a tag and push to the repo to use it later in the the statefulset file . 
 
-# sudo docker pull docker.io/cvallance/mongo-k8s-sidecar
+ sudo docker pull docker.io/cvallance/mongo-k8s-sidecar
 
-# sudo docker tag cvallance/mongo-k8s-sidecar:latest us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
+ sudo docker tag cvallance/mongo-k8s-sidecar:latest us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
 
-# gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin  us-central1-docker.pkg.dev
+ gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin  us-central1-docker.pkg.dev
 
-# sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
+ sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
 ---------
 try to run commands kubectl and apply your files .// makesure to replace the image name in the your files  with the accual image name you gave it to the image when you built it.
 don't forget to create service account and role pinding and reference it in the statfulset file to give the cluster permission to list pods . 

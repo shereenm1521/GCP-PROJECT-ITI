@@ -15,23 +15,24 @@ Project Overview
 Infrastructure Setup
 
 Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components:
-**
-    - IAM: Create two service accounts with appropriate roles.
 
-    - Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway.
 
-    - Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones.
+   ** - IAM: Create two service accounts with appropriate roles.
 
-    - Storage: Set up an Artifact Registry repository to store container images.
+  **  - Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway.
 
-    - MongoDB Deployment Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
+  **  - Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones.
 
-    - Application Containerization and Deployment Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
+   ** - Storage: Set up an Artifact Registry repository to store container images.
 
-    - Exposing the Web Application Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
+   ** - MongoDB Deployment Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
 
-    - Identity-Aware Proxy (IAP) Integration Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users. 
-**
+   ** - Application Containerization and Deployment Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
+
+    **- Exposing the Web Application Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
+
+    **- Identity-Aware Proxy (IAP) Integration Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users. 
+
 
 Setup Steps
 

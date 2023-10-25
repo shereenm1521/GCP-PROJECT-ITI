@@ -2,7 +2,9 @@
 ##Project Description
 
 This project is designed to run on Google Cloud Platform (GCP) and involves setting up a MongoDB database and a Node.js application connected to the database using Kubernetes for container orchestration.
-Prerequisites
+Prerequisites.
+![image](https://github.com/shereenm1521/GCP-PROJECT-ITI/assets/140805315/e52a9b62-85a6-4397-89a0-cd7c8bac52df)
+
 
     GCP account with access to create and manage resources
     Installed gcloud command-line tool

@@ -9,10 +9,29 @@ Prerequisites.
     GCP account with access to create and manage resources
     Installed gcloud command-line tool
     Docker installed on your local machine
+    Project Overview
+
+    Infrastructure Setup
+        Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components: a. IAM: Create two service accounts with appropriate roles. b. Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway. c. Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones. d. Storage: Set up an Artifact Registry repository to store container images.
+
+    MongoDB Deployment
+        Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
+
+    Application Containerization and Deployment
+        Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
+
+    Exposing the Web Application
+        Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
+
+    Identity-Aware Proxy (IAP) Integration
+        Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users.
+
 ##Setup Steps
 
 1.SSH into the VM and run the following command to retrieve cluster credentials:
+```sh
     gcloud container clusters get-credentials my-gke-cluster --region=us-central1 --project=sherein
+```
 ```
 
 Note: If you encounter a timeout error when running `kubectl get nodes`, ensure that the "enable global access" option is enabled in your cluster configuration.
@@ -35,9 +54,10 @@ sh
 
 ```
 4.Run the following commands to deploy your files using kubectl:
+```sh
+kubectl apply -f filename.yaml 
 
    Note:replace the image name in your files with the actual image name you assigned it when building.
-    Create a service account and role binding and reference it in the StatefulSet file to grant cluster permission to list pods.
 
 Check the logs of the Mongo sidecar:
 ```sh

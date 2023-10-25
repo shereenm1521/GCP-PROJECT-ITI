@@ -1,5 +1,5 @@
 #GCP-PROJECT-ITI
-#Project Description
+##Project Description
 
 This project is designed to run on Google Cloud Platform (GCP) and involves setting up a MongoDB database and a Node.js application connected to the database using Kubernetes for container orchestration.
 Prerequisites.
@@ -11,21 +11,21 @@ Prerequisites.
     Docker installed on your local machine
     Project Overview
 
-    Infrastructure Setup
+    ##Infrastructure Setup
         Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components: a. IAM: Create two service accounts with appropriate roles. b. Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway. c. Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones. d. Storage: Set up an Artifact Registry repository to store container images.
-
-    MongoDB Deployment
+**
+    1.MongoDB Deployment
         Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
 
-    Application Containerization and Deployment
+    2.Application Containerization and Deployment
         Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
 
-    Exposing the Web Application
+    3.Exposing the Web Application
         Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
 
-    Identity-Aware Proxy (IAP) Integration
+    4.Identity-Aware Proxy (IAP) Integration
         Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users.
-
+**
 ##Setup Steps
 
 1.SSH into the VM and run the following command to retrieve cluster credentials:

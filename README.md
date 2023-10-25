@@ -14,16 +14,16 @@ Prerequisites.
     ##Infrastructure Setup
         Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components: a. IAM: Create two service accounts with appropriate roles. b. Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway. c. Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones. d. Storage: Set up an Artifact Registry repository to store container images.
 **
-    1.MongoDB Deployment
+    - MongoDB Deployment
         Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
 
-    2.Application Containerization and Deployment
+    - Application Containerization and Deployment
         Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
 
-    3.Exposing the Web Application
+    - Exposing the Web Application
         Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
 
-    4.Identity-Aware Proxy (IAP) Integration
+    - Identity-Aware Proxy (IAP) Integration
         Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users.
 **
 ##Setup Steps

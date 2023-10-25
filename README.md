@@ -24,15 +24,15 @@ gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --passwo
 sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/mongo:5.0.15
 ```
 3.Pull the Mongo sidecar image and tag it:
-sudo docker pull docker.io/cvallance/mongo-k8s-sidecar
-sudo docker tag docker.io/cvallance/mongo-k8s-sidecar:latest us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
-gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
-sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
+*sudo docker pull docker.io/cvallance/mongo-k8s-sidecar
+*sudo docker tag docker.io/cvallance/mongo-k8s-sidecar:latest us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
+*gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
+*sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
 ```
 
 
 ```
-*Run the following commands to deploy your files using kubectl:
+4.Run the following commands to deploy your files using kubectl:
 
    Note:replace the image name in your files with the actual image name you assigned it when building.
     Create a service account and role binding and reference it in the StatefulSet file to grant cluster permission to list pods.
@@ -40,15 +40,15 @@ sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-
 Check the logs of the Mongo sidecar:
 kubectl logs mongo-0 -c mongo-sidecar
 
-*Access the Mongo pod:
+5.Access the Mongo pod:
 kubectl exec -it mongo-0 bash
 mongo --host mongo-0.mongo.default.svc.cluster.local:27017 -u shery -p 1521 --authenticationDatabase admin
 
 6.Build the Node.js Docker image and connect the app with the database:
-sudo docker build -t node:slim .
-sudo docker tag mongo:slim us-central1-docker.pkg.dev/sherein/my-repo/mongo:slim 
-gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
-sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/node:5.0.15
+*sudo docker build -t node:slim .
+*sudo docker tag mongo:slim us-central1-docker.pkg.dev/sherein/my-repo/mongo:slim 
+*gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev
+*sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/node:5.0.15
 
 -----------------------
 7.Deploy your application . 🙂

@@ -24,6 +24,7 @@ gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --passwo
 sudo docker push us-central1-docker.pkg.dev/sherein/my-repo/mongo:5.0.15
 ```
 3.Pull the Mongo sidecar image and tag it:
+
 sudo docker pull docker.io/cvallance/mongo-k8s-sidecar
 sudo docker tag docker.io/cvallance/mongo-k8s-sidecar:latest us-central1-docker.pkg.dev/sherein/my-repo/cvallance/mongo-k8s-sidecar:latest
 gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev

@@ -17,21 +17,21 @@ Infrastructure Setup
 Develop and utilize your own Terraform modules to create the necessary infrastructure on GCP, including the following components:
 
 
-   ** - IAM: Create two service accounts with appropriate roles.
+   ** IAM: Create two service accounts with appropriate roles.
 
-  **  - Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway.
+  **  Network: Establish one Virtual Private Cloud (VPC) with two subnets, configure firewall rules as needed, and set up one NAT gateway.
 
-  **  - Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones.
+  **  Compute: Deploy one private Virtual Machine (VM) and create one Google Kubernetes Engine (GKE) standard cluster spanning across three zones.
 
-   ** - Storage: Set up an Artifact Registry repository to store container images.
+  ** Storage: Set up an Artifact Registry repository to store container images.
 
-   ** - MongoDB Deployment Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
+  ** MongoDB Deployment Deploy a MongoDB replica set across the three zones, ensuring high availability and replication.
 
-   ** - Application Containerization and Deployment Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
+  ** Application Containerization and Deployment Dockerize the Node.js web application, ensuring it can connect to the three MongoDB replicas.
 
-    **- Exposing the Web Application Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
+  ** Exposing the Web Application Expose the web application using an ingress controller or a load balancer for high availability and load distribution.
 
-    **- Identity-Aware Proxy (IAP) Integration Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users. 
+  ** Identity-Aware Proxy (IAP) Integration Enable Identity-Aware Proxy on the load balancer to restrict access to the web application, allowing traffic only from authorized users. 
 
 
 Setup Steps
